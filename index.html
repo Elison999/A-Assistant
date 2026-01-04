@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox UI Architect | Advanced Luau AI</title>
+    
+    <!-- Meta Tags para SEO e Redes Sociais -->
+    <meta name="description" content="Gere bibliotecas de interface profissionais para Roblox usando Inteligência Artificial avançada. Personalize topbars, sistemas de keys e muito mais.">
+    <meta property="og:title" content="Roblox UI Architect AI">
+    <meta property="og:description" content="A ferramenta definitiva para desenvolvedores Roblox criarem UI Libraries em segundos.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#0f172a">
+
+    <!-- Scripts e Estilos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #0f172a; 
+            color: #f8fafc; 
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .glass { 
+            background: rgba(30, 41, 59, 0.7); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { 
+            background: #475569; 
+            border-radius: 4px; 
+            border: 2px solid #1e293b;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+        /* Loader Inicial */
+        #initial-loader {
+            position: fixed;
+            inset: 0;
+            background: #0f172a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(59, 130, 246, 0.1);
+            border-top-color: #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+      }
+    }
+    </script>
+</head>
+<body>
+    <div id="initial-loader">
+        <div class="spinner"></div>
+        <p style="margin-top: 1rem; font-size: 0.75rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.1em;">Iniciando Arquiteto...</p>
+    </div>
+
+    <div id="root"></div>
+
+    <script type="module">
+        import './index.tsx';
+        // Remove o loader assim que o script principal carregar
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('initial-loader');
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.remove(), 500);
+            }
+        });
+    </script>
+</body>
+</html>
